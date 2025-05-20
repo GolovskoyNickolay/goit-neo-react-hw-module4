@@ -1,33 +1,40 @@
-import toast from "react-hot-toast";
-import css from "./SearchBar.module.css";
-import { CiSearch } from "react-icons/ci";
+import { Formik, Form, Field } from 'formik';
+import toast, { Toaster } from 'react-hot-toast';
+import styles from "./SearchBar.module.css";
 
-export default function SearchBar({ onSubmit }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const query = event.target.elements.searchQuery.value.trim();
-    if (query.length === 0)
-      return toast("Input cannot be empty", {
-        duration: 4000,
-        position: "top-center",
-      });
-    onSubmit(query);
-  };
-  return (
-    <header className={css.header}>
-      <form onSubmit={handleSubmit} className={css.form}>
-        <input
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search images and photos"
-          name="searchQuery"
-        />
-        <button type="submit">
-          <CiSearch width={32} height={32} className={css.icon} />
-          Search
-        </button>
-      </form>
-    </header>
-  );
-}
+const notify = () => {
+    toast.error('Please type something');
+};
+
+const SearchBar = ({ onSubmit }) => {
+
+    const handleSubmit = (values, actions) => {
+        if (!values.search.trim()) {
+            notify();
+            return;
+        }
+        onSubmit(values.search);
+        actions.resetForm();
+    };
+
+    return (
+        <header className={styles.header}>
+            <Toaster position="top-right" />
+            <Formik initialValues={{ search: "" }} onSubmit={handleSubmit}>
+                <Form className={styles.searchForm}>
+                    <Field
+                        className={styles.searchField}
+                        type="text"
+                        name="search"
+                        placeholder="Search images and photos"
+                        autoComplete="off"
+                        autoFocus
+                    />
+                    <button className={styles.submitBtn} type="submit">Search</button>
+                </Form>
+            </Formik>
+        </header>
+    );
+};
+
+export default SearchBar;

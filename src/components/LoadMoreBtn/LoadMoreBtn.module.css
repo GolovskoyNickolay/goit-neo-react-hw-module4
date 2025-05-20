@@ -1,12 +1,16 @@
-.btn-load-more {
-  border-radius: 16px;
-  background: #ebebeb;
-  padding: 10px 64px;
-  margin: 0 auto;
+.button {
   display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #0066a0;
+  color: white;
   border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-.btn-load-more:hover {
-  cursor: pointer;
+.button:hover {
+  background-color: #004f80;
 }

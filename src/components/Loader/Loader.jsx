@@ -1,6 +1,12 @@
-import { Triangle } from "react-loader-spinner";
-import css from "./Loader.module.css";
+import styles from "./Loader.module.css";
+import CircleLoader from "react-spinners/ClipLoader";
 
-export default function Loader({ visible }) {
-    return <Triangle visible={visible} height="80" width="80" color="var(--white)" ariaLabel="triangle-loading" wrapperClass={css.loader} />;
-}
+const Loader = () => {
+  return (
+    <div className={styles.loader}>
+      <CircleLoader color="#0066a0" />
+    </div>
+  );
+};
+
+export default Loader;

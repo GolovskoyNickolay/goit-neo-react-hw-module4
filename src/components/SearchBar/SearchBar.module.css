@@ -1,46 +1,54 @@
+/* Заголовок (контейнер хедера) */
 .header {
-    background-color: var(--bg-1);
-    padding: 10px 48px;
-    border-radius: 16px;
+  background: linear-gradient(to right, #004f80, #0066a0);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.form {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: left;
+.searchForm {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.form input,
-.form button {
-    background-color: transparent;
-    border: none;
+.searchField {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
 }
 
-.form input {
-    border-bottom: solidvar(--white) 1px;
-    color: var(--white);
-    font-size: 24px;
+.searchField:focus {
+  box-shadow: 0px 0px 8px rgba(0, 102, 160, 0.6);
 }
 
-.form input:focus {
-    outline: none;
-    border-bottom: 1px var(--white) solid;
+.submitBtn {
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #0066a0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.form button {
-    width: 32px;
-    height: 32px;
-    overflow: hidden;
-    color: transparent;
-    margin-right: 1rem;
-}
-
-.form button:hover {
-    cursor: pointer;
-}
-
-.icon {
-    width: 32px;
-    height: 32px;
-    color: var(--white);
+.submitBtn:hover {
+  background: #004f80;
+  transform: scale(1.05);
 }
